@@ -39,6 +39,32 @@ public class Departamento {
         }
     }
 
+    public int getTotalFuncionariosAtivos(){
+        int total = 0;
+        for (int i = 0; i < Index; i++){
+            if (func[i].isAtivo()){
+                total++;
+            }
+        }
+        return total;
+    }
+
+    public double calcularFolhaTotalLiquida(){
+        double folhaTotal = 0;
+        for (int i = 0; i < Index; i++){
+            if (func[i].isAtivo()){
+                folhaTotal += func[i].calcularSalarioLiquido();
+            }
+        }
+        return folhaTotal;
+    }
+
+    public void exibirRelatorio(){
+        System.out.println("Nome: " + nome);
+        System.out.println("Ativos: " + getTotalFuncionariosAtivos());
+        System.out.println("Total Folha: " + calcularFolhaTotalLiquida());
+    }
+
     public String getCodigo() {
         return codigo;
     }
